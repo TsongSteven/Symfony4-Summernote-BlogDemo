@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Actions</th>
+		</tr>
+	{% for post in post %}
+		<tr>
+			<td>
+				{{post.title}}
+			</td>
+			<td>
+				<a href="/view/{{ post.id }}" class="btn btn-info">View</a>
+				<a href="/update/{{ post.id }}" class="btn btn-primary">Edit</a>
+				<a href="/delete/{{ post.id }}" class="btn btn-danger">Delete</a>
+			</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% endblock %}
