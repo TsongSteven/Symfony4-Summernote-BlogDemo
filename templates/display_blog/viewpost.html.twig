@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+		<div class="">
+			<h3>{{ post.title }}</h3>
+			<img src="{{ asset('image/' ~ post.image) }}" class="" style="max-width: 1200px">
+		<div>
+			{{  post.content|raw }}
+		</div>
+		</div>
+	{% endblock %}
