@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<nav aria-label="breadcrumb" style="margin-top:10px;">
+		<ol class="breadcrumb"><li class="breadcrumb-item">Blogs</li></ol>
+	</nav>
+<div class="row">
+	{% for content in post %}
+
+		<div class="col-md-3">
+			<div style="" >
+				<a href="/viewpost/{{ content.id }}">
+				<img src="{{ asset('image/' ~ content.image) }}" class="card-img-top img-responsive" >
+
+				{{ content.title }}
+				</a>
+				<p>Category: <span class="badge badge-primary">{{ content.category }}</span></p>
+			
+		</div>
+		</div>
+
+	{% endfor %}
+</div>
+
+{% endblock %}
