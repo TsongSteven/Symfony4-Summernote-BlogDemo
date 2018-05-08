@@ -38,6 +38,15 @@ class BlogController extends Controller
     	if($form->isSubmitted() && $form->isValid()){
 
     		$data = $form->getData();
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+
+            $img = $form->get('image')->getData();
+
+            $fileName = md5(uniqid()).'.'.$img->guessExtension();
+
+            $img->move($this->getParameter('image_directory'), $fileName);
+
+            $data->setImage($fileName);
 
     		$em = $this->getDoctrine()->getManager();
     		$em->persist($data);
